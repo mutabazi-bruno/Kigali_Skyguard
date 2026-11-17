@@ -39,8 +39,9 @@ namespace Skyguard.Weapons
 
         protected override void OnSelectEntered(SelectEnterEventArgs args)
         {
-            base.OnSelectEntered(args);
+            // set before base, which fires selectEntered and the blaster reads Loaded in there
             Loaded = args.interactableObject.transform.GetComponent<Magazine>();
+            base.OnSelectEntered(args);
         }
 
         protected override void OnSelectExited(SelectExitEventArgs args)
