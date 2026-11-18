@@ -1,0 +1,25 @@
+key|en|fr|rw
+tut_welcome|Welcome to the Skyguard, volunteer. I'm Ishema, this tower's assistant.|Bienvenue chez les Skyguard, volontaire. Je suis Ishema, l'assistant de cette tour.|Murakaza neza muri Skyguard, mukorerabushake. Ndi Ishema, umufasha w'uyu munara.
+tut_grab|Grab the blaster from your belt with the grip button.|Saisis le blaster à ta ceinture avec le bouton de préhension.|Fata imbunda yawe ku mukandara ukoresheje buto yo gufata.
+tut_shoot|Pull the trigger and hit the practice target.|Appuie sur la gâchette et touche la cible d'entraînement.|Kanda imbarutso urase intego y'imyitozo.
+tut_eject|Press A or X to drop the magazine.|Appuie sur A ou X pour éjecter le chargeur.|Kanda A cyangwa X ukuremo ikigega cy'amasasu.
+tut_load|Take a fresh magazine from your belt and push it into the grip.|Prends un chargeur neuf à ta ceinture et enfonce-le dans la crosse.|Fata ikindi kigega ku mukandara ugishyire mu mbunda.
+tut_done|Good. HIVE is sending the first drones. Hold the tower.|Bien. HIVE envoie ses premiers drones. Tiens la tour.|Ni byiza. HIVE yohereje drone za mbere. Rinda umunara.
+wave_1|Wave one. Scout drones incoming. Stop them before they reach the tower.|Vague un. Des drones éclaireurs arrivent. Arrête-les avant la tour.|Igitero cya mbere. Drone za Scout ziraje. Zihagarike mbere y'uko zigera ku munara.
+hours_6|Six hours to dawn.|Six heures avant l'aube.|Hasigaye amasaha atandatu ngo bucye.
+wave_3|Wave three. Gunner drones shoot back. Block with your shield, or move.|Vague trois. Les Gunners ripostent. Bloque avec ton bouclier, ou bouge.|Igitero cya gatatu. Drone za Gunner zirasa. Kingisha ingabo yawe, cyangwa wikize.
+move_t2|Tower One is safe. Moving you to Tower Two, on the hill.|La tour un est sauvée. Je t'envoie à la tour deux, sur la colline.|Umunara wa mbere urinzwe. Ugiye ku munara wa kabiri, ku musozi.
+wave_5|Wave five. Shielded drones. Hit them from the side or break the shield.|Vague cinq. Drones à bouclier. Tire sur leurs flancs ou brise le bouclier.|Igitero cya gatanu. Drone zifite ingabo. Zirase ku ruhande cyangwa umene ingabo.
+hours_4|Four hours to dawn.|Quatre heures avant l'aube.|Hasigaye amasaha ane ngo bucye.
+move_t3|Last stop, the main relay. Dawn is close.|Dernier arrêt, le relais principal. L'aube est proche.|Aha ni ho ha nyuma, ku munara mukuru. Bugiye gucya.
+wave_8|Wave eight. They're coming from everywhere now.|Vague huit. Ils arrivent de partout maintenant.|Igitero cya munani. Ziraje ziturutse impande zose.
+hours_1|One hour to dawn.|Une heure avant l'aube.|Hasigaye isaha imwe ngo bucye.
+wave_10|Final wave. A Carrier drone. Destroy its glowing weak points.|Dernière vague. Un Carrier. Détruis ses points faibles lumineux.|Igitero cya nyuma. Carrier iraje. Senya ahantu hayo hacana.
+wave_next|Next wave incoming.|Prochaine vague en approche.|Ikindi gitero kiraje.
+wave_clear|Wave clear. Shoot an upgrade.|Vague terminée. Tire sur une amélioration.|Igitero kirangiye. Rasa kimwe mu byongerera imbaraga.
+reload_fast|Fast reload. Nice.|Rechargement rapide. Joli.|Wongeyemo amasasu vuba. Ni byiza!
+tower_low|The tower is losing power!|La tour perd de l'énergie !|Umunara uri gutakaza imbaraga!
+shield_low|Your shield is almost gone. Keep moving.|Ton bouclier est presque vide. Continue de bouger.|Ingabo yawe igiye gushira. Komeza wikize.
+dawn|The sun is up. The network is resetting. You held the city, Skyguard.|Le soleil se lève. Le réseau redémarre. Tu as protégé la ville, Skyguard.|Izuba rirarashe. Umuyoboro uri gutangira bushya. Warinze umujyi, Skyguard.
+game_over|The tower is down. HIVE got through this time.|La tour est tombée. HIVE est passé cette fois.|Umunara waguye. HIVE yatsinze iki gihe.
+endless|Endless mode. Let's see how long you last.|Mode infini. Voyons combien de temps tu tiens.|Uburyo butarangira. Reka turebe igihe uri bumare.
