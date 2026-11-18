@@ -13,6 +13,7 @@ namespace Skyguard.Data
         public bool leftHanded;
         public bool seated;
         public bool snapTurn;
+        public bool frontShield = true;
         public Difficulty difficulty = Difficulty.Normal;
         public SubtitleLanguage language = SubtitleLanguage.English;
         public float volume = 0.8f;

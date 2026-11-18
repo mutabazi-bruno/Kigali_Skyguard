@@ -25,6 +25,7 @@ namespace Skyguard.Core
     public struct TowerRepaired { public int Health; public int MaxHealth; }
     public struct PlayerHit { public Vector3 Position; public int ShieldLeft; }
     public struct PlayerShieldRefilled { public int Points; }
+    public struct LaserBlocked { public Vector3 Position; public bool LeftHand; }
     public struct TargetHit { public Vector3 Position; }
 
     // run flow

@@ -29,6 +29,8 @@ namespace Skyguard.Flow
 
         readonly GameStateMachine machine = new();
         InputAction pauseAction;
+        InputAction shieldLeft;
+        InputAction shieldRight;
         bool starting;
         int waveStartScore;
         int waveStartTowerHealth;
@@ -65,18 +67,31 @@ namespace Skyguard.Flow
 
             pauseAction = new InputAction("Pause", binding: "<XRController>{LeftHand}/{MenuButton}");
             pauseAction.AddBinding("<Keyboard>/escape");
+
+            // top face button of the off hand: Y normally, B for left-handed players
+            shieldLeft = new InputAction("Shield Left", binding: "<XRController>{LeftHand}/{SecondaryButton}");
+            shieldLeft.AddBinding("<Keyboard>/t");
+            shieldRight = new InputAction("Shield Right", binding: "<XRController>{RightHand}/{SecondaryButton}");
         }
 
         void OnEnable()
         {
             pauseAction.performed += OnPausePressed;
             pauseAction.Enable();
+            shieldLeft.performed += OnShieldLeft;
+            shieldRight.performed += OnShieldRight;
+            shieldLeft.Enable();
+            shieldRight.Enable();
         }
 
         void OnDisable()
         {
             pauseAction.performed -= OnPausePressed;
             pauseAction.Disable();
+            shieldLeft.performed -= OnShieldLeft;
+            shieldRight.performed -= OnShieldRight;
+            shieldLeft.Disable();
+            shieldRight.Disable();
         }
 
         void Start()
@@ -303,6 +318,18 @@ namespace Skyguard.Flow
         {
             if (machine.Current != null)
                 Pause();
+        }
+
+        void OnShieldLeft(InputAction.CallbackContext _) => ToggleShield(true);
+        void OnShieldRight(InputAction.CallbackContext _) => ToggleShield(false);
+
+        // only the hand without the blaster carries the shield, the gun hand's button does nothing
+        void ToggleShield(bool leftHand)
+        {
+            if (leftHand == Settings.leftHanded || Time.timeScale == 0f)
+                return;
+            Settings.frontShield = !Settings.frontShield;
+            ApplySettings();
         }
 
         void OnPausePressed(InputAction.CallbackContext _)

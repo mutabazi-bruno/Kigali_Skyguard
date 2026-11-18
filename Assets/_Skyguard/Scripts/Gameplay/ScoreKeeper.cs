@@ -9,6 +9,7 @@ namespace Skyguard.Gameplay
 
         [SerializeField] int hitsPerStep = 5;
         [SerializeField] int towerBonus = 500;
+        [SerializeField] int blockBonus = 50;
 
         bool counting;
         bool overdriveArmed;
@@ -30,6 +31,7 @@ namespace Skyguard.Gameplay
             EventBus.Subscribe<DroneDestroyed>(OnDroneDestroyed);
             EventBus.Subscribe<WaveStarted>(OnWaveStarted);
             EventBus.Subscribe<WaveCleared>(OnWaveCleared);
+            EventBus.Subscribe<LaserBlocked>(OnLaserBlocked);
         }
 
         void OnDisable()
@@ -40,6 +42,7 @@ namespace Skyguard.Gameplay
             EventBus.Unsubscribe<DroneDestroyed>(OnDroneDestroyed);
             EventBus.Unsubscribe<WaveStarted>(OnWaveStarted);
             EventBus.Unsubscribe<WaveCleared>(OnWaveCleared);
+            EventBus.Unsubscribe<LaserBlocked>(OnLaserBlocked);
         }
 
         public void ResetRun()
@@ -115,6 +118,12 @@ namespace Skyguard.Gameplay
             if (e.TowerBonus)
                 Add(towerBonus);
             overdriveActive = false;
+        }
+
+        void OnLaserBlocked(LaserBlocked _)
+        {
+            if (counting)
+                Add(blockBonus);
         }
 
         void Add(int points)
