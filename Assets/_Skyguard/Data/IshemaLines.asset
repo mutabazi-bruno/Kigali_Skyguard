@@ -1,0 +1,144 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59eba16aff1db2a42828d2b0ee821acf, type: 3}
+  m_Name: IshemaLines
+  m_EditorClassIdentifier: 
+  lines:
+  - key: tut_welcome
+    english: Welcome to the Skyguard, volunteer. I'm Ishema, this tower's assistant.
+    french: Bienvenue chez les Skyguard, volontaire. Je suis Ishema, l'assistante
+      de cette tour.
+    kinyarwanda: Murakaza neza muri Skyguard, mukorerabushake. Ndi Ishema, umufasha
+      w'uyu munara.
+    voice: {fileID: 8300000, guid: df3250c6b9434864087a82b1e06e44e9, type: 3}
+  - key: tut_grab
+    english: Grab the blaster from your belt with the grip button.
+    french: "Saisis le blaster \xE0 ta ceinture avec le bouton de pr\xE9hension."
+    kinyarwanda: Fata imbunda yawe ku mukandara ukoresheje buto yo gufata.
+    voice: {fileID: 8300000, guid: 485f66cfa2159c04c93cf14b2365afff, type: 3}
+  - key: tut_shoot
+    english: Pull the trigger and hit the practice target.
+    french: "Appuie sur la g\xE2chette et touche la cible d'entra\xEEnement."
+    kinyarwanda: Kanda imbarutso urase intego y'imyitozo.
+    voice: {fileID: 8300000, guid: bb5437233ffc5cd469a34ab89088d630, type: 3}
+  - key: tut_eject
+    english: Press A or X to drop the magazine.
+    french: "Appuie sur A ou X pour \xE9jecter le chargeur."
+    kinyarwanda: Kanda A cyangwa X ukuremo ikigega cy'amasasu.
+    voice: {fileID: 8300000, guid: 69b768ef6668c4c479d6e1503d9aa720, type: 3}
+  - key: tut_load
+    english: Take a fresh magazine from your belt and push it into the grip.
+    french: "Prends un chargeur neuf \xE0 ta ceinture et enfonce-le dans la crosse."
+    kinyarwanda: Fata ikindi kigega ku mukandara ugishyire mu mbunda.
+    voice: {fileID: 8300000, guid: 27ea017522222e149aeb79ed357f6bc6, type: 3}
+  - key: tut_done
+    english: Good. HIVE is sending the first drones. Hold the tower.
+    french: Bien. HIVE envoie ses premiers drones. Tiens la tour.
+    kinyarwanda: Ni byiza. HIVE yohereje drone za mbere. Rinda umunara.
+    voice: {fileID: 8300000, guid: 64963dcd7aef4684da4df150c0e1c7ef, type: 3}
+  - key: wave_1
+    english: Wave one. Scout drones incoming. Stop them before they reach the tower.
+    french: "Vague un. Des drones \xE9claireurs arrivent. Arr\xEAte-les avant la
+      tour."
+    kinyarwanda: Igitero cya mbere. Drone za Scout ziraje. Zihagarike mbere y'uko
+      zigera ku munara.
+    voice: {fileID: 8300000, guid: f23f0426f890fa54a8156eba65fe4f25, type: 3}
+  - key: hours_6
+    english: Six hours to dawn.
+    french: Six heures avant l'aube.
+    kinyarwanda: Hasigaye amasaha atandatu ngo bucye.
+    voice: {fileID: 8300000, guid: 7bbddde1afce1ad438a39fac464e9001, type: 3}
+  - key: wave_3
+    english: Wave three. Gunner drones shoot back. Block with your shield, or move.
+    french: Vague trois. Les Gunners ripostent. Bloque avec ton bouclier, ou bouge.
+    kinyarwanda: Igitero cya gatatu. Drone za Gunner zirasa. Kingisha ingabo yawe,
+      cyangwa wikize.
+    voice: {fileID: 8300000, guid: 1b8aa131780fc3b49a4919709961424a, type: 3}
+  - key: move_t2
+    english: Tower One is safe. Moving you to Tower Two, on the hill.
+    french: "La tour un est sauv\xE9e. Je t'envoie \xE0 la tour deux, sur la colline."
+    kinyarwanda: Umunara wa mbere urinzwe. Ugiye ku munara wa kabiri, ku musozi.
+    voice: {fileID: 8300000, guid: 479c232e73fd76548bd4a6ae5555d8bd, type: 3}
+  - key: wave_5
+    english: Wave five. Shielded drones. Hit them from the side or break the shield.
+    french: "Vague cinq. Drones \xE0 bouclier. Tire sur leurs flancs ou brise le
+      bouclier."
+    kinyarwanda: Igitero cya gatanu. Drone zifite ingabo. Zirase ku ruhande cyangwa
+      umene ingabo.
+    voice: {fileID: 8300000, guid: 406165ee2dc4ef24db5e2b43251e1c41, type: 3}
+  - key: hours_4
+    english: Four hours to dawn.
+    french: Quatre heures avant l'aube.
+    kinyarwanda: Hasigaye amasaha ane ngo bucye.
+    voice: {fileID: 8300000, guid: a66fe1f2fbba4594bb07d1cbbd35be66, type: 3}
+  - key: move_t3
+    english: Last stop, the main relay. Dawn is close.
+    french: "Dernier arr\xEAt, le relais principal. L'aube est proche."
+    kinyarwanda: Aha ni ho ha nyuma, ku munara mukuru. Bugiye gucya.
+    voice: {fileID: 8300000, guid: f5ea30c827e99be45a701380dc07ec01, type: 3}
+  - key: wave_8
+    english: Wave eight. They're coming from everywhere now.
+    french: Vague huit. Ils arrivent de partout maintenant.
+    kinyarwanda: Igitero cya munani. Ziraje ziturutse impande zose.
+    voice: {fileID: 8300000, guid: 2fc217f0fd423b943889a16c5d2d09d9, type: 3}
+  - key: hours_1
+    english: One hour to dawn.
+    french: Une heure avant l'aube.
+    kinyarwanda: Hasigaye isaha imwe ngo bucye.
+    voice: {fileID: 8300000, guid: e9afaaba8e259cd44bbbc1bc531bda58, type: 3}
+  - key: wave_10
+    english: Final wave. A Carrier drone. Destroy its glowing weak points.
+    french: "Derni\xE8re vague. Un Carrier. D\xE9truis ses points faibles lumineux."
+    kinyarwanda: Igitero cya nyuma. Carrier iraje. Senya ahantu hayo hacana.
+    voice: {fileID: 8300000, guid: c9419b9b9fe363841b135a3a549bb1d3, type: 3}
+  - key: wave_next
+    english: Next wave incoming.
+    french: Prochaine vague en approche.
+    kinyarwanda: Ikindi gitero kiraje.
+    voice: {fileID: 8300000, guid: 15d2ecb59b434fa44ad18734a2933865, type: 3}
+  - key: wave_clear
+    english: Wave clear. Shoot an upgrade.
+    french: "Vague termin\xE9e. Tire sur une am\xE9lioration."
+    kinyarwanda: Igitero kirangiye. Rasa kimwe mu byongerera imbaraga.
+    voice: {fileID: 8300000, guid: 5a75950eccde4bb41bac548845a9fec8, type: 3}
+  - key: reload_fast
+    english: Fast reload. Nice.
+    french: Rechargement rapide. Joli.
+    kinyarwanda: Wongeyemo amasasu vuba. Ni byiza!
+    voice: {fileID: 8300000, guid: 93c36613f7b01184c95354595cb5d3e2, type: 3}
+  - key: tower_low
+    english: The tower is losing power!
+    french: "La tour perd de l'\xE9nergie !"
+    kinyarwanda: Umunara uri gutakaza imbaraga!
+    voice: {fileID: 8300000, guid: 6cf9166d379386e4fb3eba9bd6d9ecf0, type: 3}
+  - key: shield_low
+    english: Your shield is almost gone. Keep moving.
+    french: Ton bouclier est presque vide. Continue de bouger.
+    kinyarwanda: Ingabo yawe igiye gushira. Komeza wikize.
+    voice: {fileID: 8300000, guid: 46828c2c8b1d85b4e807053629e2db6d, type: 3}
+  - key: dawn
+    english: The sun is up. The network is resetting. You held the city, Skyguard.
+    french: "Le soleil se l\xE8ve. Le r\xE9seau red\xE9marre. Tu as prot\xE9g\xE9
+      la ville, Skyguard."
+    kinyarwanda: Izuba rirarashe. Umuyoboro uri gutangira bushya. Warinze umujyi,
+      Skyguard.
+    voice: {fileID: 8300000, guid: b7d6f358f5ef5274c9248aee79a619f4, type: 3}
+  - key: game_over
+    english: The tower is down. HIVE got through this time.
+    french: "La tour est tomb\xE9e. HIVE est pass\xE9 cette fois."
+    kinyarwanda: Umunara waguye. HIVE yatsinze iki gihe.
+    voice: {fileID: 8300000, guid: 47305ca4405e5e146bb426ccc734a18c, type: 3}
+  - key: endless
+    english: Endless mode. Let's see how long you last.
+    french: Mode infini. Voyons combien de temps tu tiens.
+    kinyarwanda: Uburyo butarangira. Reka turebe igihe uri bumare.
+    voice: {fileID: 8300000, guid: 0523a718bf05f9147b361432f15c4575, type: 3}

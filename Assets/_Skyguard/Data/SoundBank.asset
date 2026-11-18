@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db4248a6ae4903743ad78cbe385c9c5f, type: 3}
+  m_Name: SoundBank
+  m_EditorClassIdentifier: 
+  shot: {fileID: 8300000, guid: 052cc34313cb39847b3c85abd1795ce5, type: 3}
+  dryFire: {fileID: 8300000, guid: 23739c19eca1b574ba9cf196b91fa9ca, type: 3}
+  magazineOut: {fileID: 8300000, guid: 873349b9ae0a2af428e4afb064cb61ea, type: 3}
+  magazineIn: {fileID: 8300000, guid: 4719418d474ca95488f1fa7edf2f9e59, type: 3}
+  fastReload: {fileID: 8300000, guid: a9385a6ea52f659498c050cad834fcd4, type: 3}
+  laserCharge: {fileID: 8300000, guid: 27043a12d0b0f0c42b1fec36ce92d077, type: 3}
+  laserFire: {fileID: 8300000, guid: 700c52686f964a045b1f51812ea4eb86, type: 3}
+  explosion: {fileID: 8300000, guid: 07d8ca501bd93ef418a90318b6500d4e, type: 3}
+  bigExplosion: {fileID: 8300000, guid: 4b9cd69804c6cb94292ef02375b716f3, type: 3}
+  hitSpark: {fileID: 8300000, guid: e52ca337e13f7c049ae826b073b81ff1, type: 3}
+  shieldBlock: {fileID: 8300000, guid: 43b952ec57b46c44fb13ffd72ca316f3, type: 3}
+  shieldBreak: {fileID: 8300000, guid: c3bfecdf3ed2d8947b56f4ad80d77662, type: 3}
+  carrierRelease: {fileID: 8300000, guid: 433a1e7d994a66d4983d4ef166dc206f, type: 3}
+  towerHit: {fileID: 8300000, guid: 92e6db462d34f584ea07f4a8f33405f7, type: 3}
+  towerAlarm: {fileID: 8300000, guid: 904830942991d4443a7eaf4ee2f47ec9, type: 3}
+  playerHit: {fileID: 8300000, guid: b99650899b4620542a72f63bffb9f16c, type: 3}
+  waveStart: {fileID: 8300000, guid: 4e1680969209dfd4cb8f17f50147620a, type: 3}
+  waveCleared: {fileID: 8300000, guid: 7bc685d6c3710a34f9693344dddffd12, type: 3}
+  upgradePicked: {fileID: 8300000, guid: 10f889328bc63714cbeacd8033d8e98d, type: 3}
+  gameOver: {fileID: 8300000, guid: 6de8ae8645b64824189ce4d9317cc8c8, type: 3}
+  dawn: {fileID: 8300000, guid: 9b42ab1da97641a42b4351afecba2bf8, type: 3}
+  uiClick: {fileID: 8300000, guid: 54aa2b5d0e9357044adafd9c7ea30d08, type: 3}
+  ishemaChime: {fileID: 8300000, guid: cf24828067ee6be4ca26828371944dce, type: 3}
+  musicBase: {fileID: 8300000, guid: 3a092f7f324760c469c7f5b94c520bc3, type: 3}
+  musicDrive: {fileID: 8300000, guid: 4cbc0bc68274c6641a305cba678d0b6c, type: 3}

@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da969c6565a4cc14eb55937744a79cbd, type: 3}
+  m_Name: Wave10
+  m_EditorClassIdentifier: 
+  ishemaLine: wave_10
+  speedMultiplier: 1
+  spawns:
+  - type: 3
+    count: 1
+    startTime: 2
+    interval: 1
+    side: 0
+  - type: 1
+    count: 2
+    startTime: 15
+    interval: 12
+    side: 0
+  - type: 0
+    count: 4
+    startTime: 25
+    interval: 3
+    side: 2
