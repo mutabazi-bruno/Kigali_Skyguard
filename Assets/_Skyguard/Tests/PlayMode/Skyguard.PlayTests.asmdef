@@ -1,0 +1,23 @@
+{
+    "name": "Skyguard.PlayTests",
+    "rootNamespace": "Skyguard.Tests",
+    "references": [
+        "Skyguard",
+        "Unity.XR.Interaction.Toolkit",
+        "UnityEngine.TestRunner",
+        "UnityEditor.TestRunner"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
