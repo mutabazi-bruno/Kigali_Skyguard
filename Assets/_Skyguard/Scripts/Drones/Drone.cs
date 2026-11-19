@@ -19,6 +19,7 @@ namespace Skyguard.Drones
         protected int health;
 
         Rigidbody body;
+        TrailRenderer trail;
         readonly List<Transform> rotors = new();
         float dyingFor;
 
@@ -33,6 +34,7 @@ namespace Skyguard.Drones
         protected virtual void Awake()
         {
             body = GetComponent<Rigidbody>();
+            trail = GetComponent<TrailRenderer>();
             foreach (var t in GetComponentsInChildren<Transform>(true))
             {
                 if (t.name.StartsWith("rotor"))
@@ -45,6 +47,9 @@ namespace Skyguard.Drones
             context = droneContext;
             health = config.maxHealth;
             State = DroneState.Active;
+            // pooled drones would otherwise draw a streak from where they died to the new spawn point
+            if (trail != null)
+                trail.Clear();
             OnInit();
         }
 

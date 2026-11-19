@@ -5,8 +5,8 @@ namespace Skyguard.Waves
     // sits on a tower, forward points out over the city. drones appear somewhere on a ring around it
     public class SpawnArea : MonoBehaviour
     {
-        [SerializeField] Vector2 radius = new(38f, 55f);
-        [SerializeField] Vector2 height = new(6f, 22f);
+        [SerializeField] Vector2 radius = new(28f, 42f);
+        [SerializeField] Vector2 height = new(4f, 16f);
 
         public Vector3 PickPoint(SpawnSide side)
         {
