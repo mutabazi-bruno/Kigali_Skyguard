@@ -36,8 +36,9 @@ namespace Skyguard.Platform
             var roof = rooftops[index];
             var anchor = roof.PlayerAnchor.position;
 
-            // face the tower, then slide the rig so the player's head ends up right above the anchor
-            var towards = roof.Tower.transform.position - anchor;
+            // face out over the city where the drones come from, then slide the rig so the head is above the anchor.
+            // the tower stands off to the front left, close enough to guard but out of the line of fire
+            var towards = roof.SpawnArea.transform.forward;
             towards.y = 0f;
             origin.MatchOriginUpCameraForward(Vector3.up, towards.normalized);
 
