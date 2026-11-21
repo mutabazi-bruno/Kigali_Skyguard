@@ -35,5 +35,8 @@ MonoBehaviour:
   dawn: {fileID: 8300000, guid: 9b42ab1da97641a42b4351afecba2bf8, type: 3}
   uiClick: {fileID: 8300000, guid: 54aa2b5d0e9357044adafd9c7ea30d08, type: 3}
   ishemaChime: {fileID: 8300000, guid: cf24828067ee6be4ca26828371944dce, type: 3}
-  musicBase: {fileID: 8300000, guid: 3a092f7f324760c469c7f5b94c520bc3, type: 3}
-  musicDrive: {fileID: 8300000, guid: 4cbc0bc68274c6641a305cba678d0b6c, type: 3}
+  musicMenu: {fileID: 8300000, guid: 0f3e215d837b7434f8e73a873d70f08a, type: 3}
+  musicBattle: {fileID: 8300000, guid: 9ba8d59ccf3d7c242a6aae24f6837e44, type: 3}
+  musicFinal: {fileID: 8300000, guid: db728142668e03b47ae3707f63fe9294, type: 3}
+  musicDawn: {fileID: 8300000, guid: 6f713c1d417173b46810660233205867, type: 3}
+  musicGameOver: {fileID: 8300000, guid: 8f1d147b59dc62d46ae78f6945d1e40a, type: 3}

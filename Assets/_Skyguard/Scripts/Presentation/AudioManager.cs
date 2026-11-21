@@ -10,27 +10,26 @@ namespace Skyguard.Presentation
         [SerializeField] SoundBank sounds;
         [SerializeField] PooledAudio voicePrefab;
         [SerializeField] int voices = 24;
-        [SerializeField] AudioSource musicBase;
-        [SerializeField] AudioSource musicDrive;
+        [SerializeField] AudioSource musicA;
+        [SerializeField] AudioSource musicB;
         [SerializeField] AudioLowPassFilter musicFilter;
         [SerializeField] float musicVolume = 0.45f;
+        [SerializeField] float crossfadeTime = 2f;
 
         ObjectPool<PooledAudio> pool;
-        float driveTarget;
+        // two decks: the one playing now and the one fading out, swapped on every track change
+        AudioSource current;
+        AudioSource fading;
+        float level = 0.7f;
         float cutoffTarget = 22000f;
-        float baseTarget;
         bool towerAlarmPlayed;
 
         void Awake()
         {
             pool = new ObjectPool<PooledAudio>(voicePrefab, voices, transform);
-            musicBase.clip = sounds.musicBase;
-            musicDrive.clip = sounds.musicDrive;
-            // both layers start together and never stop, so they stay in time with each other
-            musicBase.Play();
-            musicDrive.Play();
-            musicDrive.volume = 0f;
-            baseTarget = musicVolume * 0.7f;
+            current = musicA;
+            fading = musicB;
+            PlayMusic(sounds.musicMenu, true);
         }
 
         void OnEnable()
@@ -81,10 +80,23 @@ namespace Skyguard.Presentation
 
         void Update()
         {
-            float step = Time.unscaledDeltaTime;
-            musicBase.volume = Mathf.MoveTowards(musicBase.volume, baseTarget, step * 0.3f);
-            musicDrive.volume = Mathf.MoveTowards(musicDrive.volume, driveTarget, step * 0.2f);
-            musicFilter.cutoffFrequency = Mathf.Lerp(musicFilter.cutoffFrequency, cutoffTarget, step * 3f);
+            float step = Time.unscaledDeltaTime * musicVolume / crossfadeTime;
+            current.volume = Mathf.MoveTowards(current.volume, musicVolume * level, step);
+            fading.volume = Mathf.MoveTowards(fading.volume, 0f, step);
+            if (fading.isPlaying && fading.volume <= 0f)
+                fading.Stop();
+            musicFilter.cutoffFrequency = Mathf.Lerp(musicFilter.cutoffFrequency, cutoffTarget, Time.unscaledDeltaTime * 3f);
+        }
+
+        void PlayMusic(AudioClip clip, bool loop)
+        {
+            if (clip == null || (current.clip == clip && current.isPlaying))
+                return;
+            (current, fading) = (fading, current);
+            current.clip = clip;
+            current.loop = loop;
+            current.volume = 0f;
+            current.Play();
         }
 
         public void PlayUiClick() => Play(sounds.uiClick, Vector3.zero, 0.6f, false);
@@ -138,10 +150,11 @@ namespace Skyguard.Presentation
         {
             towerAlarmPlayed = false;
             Play(sounds.waveStart, Vector3.zero, 0.7f, false);
-            // the drive layer comes in harder with every wave
+            // the last tower gets the heavier track, and both get louder as the night goes on
+            bool finalStretch = e.Endless ? e.Wave >= 6 : e.Wave >= 8;
+            PlayMusic(finalStretch ? sounds.musicFinal : sounds.musicBattle, true);
             float intensity = e.Endless ? Mathf.Clamp01(0.4f + e.Wave * 0.06f) : Mathf.Clamp01(e.Wave / (float)Mathf.Max(1, e.TotalWaves));
-            driveTarget = musicVolume * Mathf.Lerp(0.35f, 1f, intensity);
-            baseTarget = musicVolume;
+            level = Mathf.Lerp(0.75f, 1f, intensity);
         }
 
         void OnWaveCleared(WaveCleared e) => Play(sounds.waveCleared, Vector3.zero, 0.9f, false);
@@ -150,17 +163,24 @@ namespace Skyguard.Presentation
         void OnRunEnded(RunEnded e)
         {
             Play(e.Result.Won ? sounds.dawn : sounds.gameOver, Vector3.zero, 0.9f, false);
-            driveTarget = 0f;
+            PlayMusic(e.Result.Won ? sounds.musicDawn : sounds.musicGameOver, false);
+            level = 0.85f;
         }
 
         void OnStateChanged(GameStateChanged e)
         {
-            // the upgrade screen is the breakdown: the beat drops out and the pads get muffled
-            cutoffTarget = e.State == GameStateId.Upgrade ? 900f : 22000f;
-            if (e.State is GameStateId.Upgrade or GameStateId.MainMenu or GameStateId.Tutorial)
-                driveTarget = 0f;
-            if (e.State == GameStateId.MainMenu)
-                baseTarget = musicVolume * 0.7f;
+            // upgrade cards and the pause menu keep the battle track going, muffled as if through a wall
+            cutoffTarget = e.State switch
+            {
+                GameStateId.Upgrade => 900f,
+                GameStateId.Paused => 600f,
+                _ => 22000f
+            };
+            if (e.State is GameStateId.MainMenu or GameStateId.Tutorial)
+            {
+                PlayMusic(sounds.musicMenu, true);
+                level = e.State == GameStateId.Tutorial ? 0.6f : 0.7f;
+            }
         }
 
         void OnIshema(IshemaSpoke e) => Play(sounds.ishemaChime, Vector3.zero, 0.4f, false);

@@ -37,7 +37,10 @@ namespace Skyguard.Presentation
         public AudioClip ishemaChime;
 
         [Header("Music")]
-        public AudioClip musicBase;
-        public AudioClip musicDrive;
+        public AudioClip musicMenu;
+        public AudioClip musicBattle;
+        public AudioClip musicFinal;
+        public AudioClip musicDawn;
+        public AudioClip musicGameOver;
     }
 }
