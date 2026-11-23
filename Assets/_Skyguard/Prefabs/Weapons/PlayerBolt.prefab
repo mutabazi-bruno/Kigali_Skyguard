@@ -138,7 +138,7 @@ MonoBehaviour:
   damage: 1
   hitMask:
     serializedVersion: 2
-    m_Bits: 833
+    m_Bits: 577
   normalTrail:
     serializedVersion: 2
     key0: {r: 0.2, g: 1, b: 0.95, a: 1}

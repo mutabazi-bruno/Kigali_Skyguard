@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Linq;
+using System.Reflection;
 using NUnit.Framework;
 using Skyguard.Core;
 using Skyguard.Drones;
@@ -95,6 +96,22 @@ namespace Skyguard.Tests
             EventBus.Unsubscribe(onBlocked);
 
             Assert.IsTrue(blocked);
+        }
+
+        // drones dive at the tower from every side, so one behind it has to stay hittable
+        [UnityTest]
+        public IEnumerator BoltsFlyThroughTheTowerLattice()
+        {
+            yield return null;
+            var bolt = Resources.FindObjectsOfTypeAll<PlayerBolt>().First();
+            var mask = (LayerMask)typeof(Projectile).GetField("hitMask", BindingFlags.NonPublic | BindingFlags.Instance).GetValue(bolt);
+
+            foreach (var tower in Object.FindObjectsByType<RelayTower>(FindObjectsSortMode.None))
+            {
+                var centre = tower.GetComponent<CapsuleCollider>().bounds.center;
+                var across = tower.transform.right;
+                Assert.IsFalse(Physics.Raycast(centre - across * 3f, across, 6f, mask, QueryTriggerInteraction.Ignore), tower.name);
+            }
         }
 
         [UnityTest]
