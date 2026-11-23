@@ -33,6 +33,11 @@ namespace Skyguard.Platform
         [SerializeField] List<Caption> captions = new();
         [SerializeField] float holdToSkip = 1f;
 
+        [Header("Placement")]
+        [SerializeField] Transform head;
+        [SerializeField] Transform cinema;
+        [SerializeField] float screenDistance = 7f;
+
         LeaderboardRepository save;
         SubtitleLanguage language;
         InputAction skip;
@@ -42,6 +47,7 @@ namespace Skyguard.Platform
         float finishedShotsTime;
         int captionIndex = -1;
         float held;
+        float placeAt;
         bool done;
 
         void Awake()
@@ -65,6 +71,8 @@ namespace Skyguard.Platform
             }
 
             captionGroup.alpha = 0f;
+            // the headset pose isn't tracked yet on the first frames, so turn the screen towards the player a moment later
+            placeAt = Time.unscaledTime + 0.25f;
             playing = playerA;
             waiting = playerB;
             foreach (var p in new[] { playerA, playerB })
@@ -84,6 +92,12 @@ namespace Skyguard.Platform
         {
             if (done)
                 return;
+
+            if (placeAt > 0f && Time.unscaledTime >= placeAt)
+            {
+                placeAt = 0f;
+                FaceThePlayer();
+            }
 
             screen.texture = playing.texture;
             UpdateCaption(finishedShotsTime + (float)playing.time);
@@ -150,6 +164,21 @@ namespace Skyguard.Platform
             if (captionIndex + 1 < captions.Count)
                 until = Mathf.Min(until, captions[captionIndex + 1].time - time);
             captionGroup.alpha = Mathf.Clamp01(Mathf.Min(since * 2f, until * 2f));
+        }
+
+        // whichever way the player is facing in the room when the scene loads, the screen goes there.
+        // coming from the menu they are usually not facing the scene's forward
+        void FaceThePlayer()
+        {
+            var forward = head.forward;
+            forward.y = 0f;
+            if (forward.sqrMagnitude < 0.01f)
+                return;
+            forward.Normalize();
+
+            var spot = head.position + forward * screenDistance;
+            spot.y = cinema.position.y;
+            cinema.SetPositionAndRotation(spot, Quaternion.LookRotation(forward));
         }
 
         void Finish()
