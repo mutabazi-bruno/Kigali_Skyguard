@@ -14,6 +14,9 @@ namespace Skyguard.UI
         [SerializeField] Transform head;
         [SerializeField] Transform menuRoot;
         [SerializeField] float distance = 1.5f;
+        [Tooltip("How far you can turn away before the menu slides back in front of you.")]
+        [SerializeField] float followAngle = 35f;
+        [SerializeField] float followSpeed = 5f;
         [SerializeField] AudioManager audioManager;
 
         [Header("Panels")]
@@ -31,6 +34,7 @@ namespace Skyguard.UI
         [SerializeField] Button settingsButton;
         [SerializeField] Button introButton;
         [SerializeField] Button quitButton;
+        [SerializeField] TextMeshProUGUI bestScore;
 
         [Header("Pause")]
         [SerializeField] Button resumeButton;
@@ -39,6 +43,9 @@ namespace Skyguard.UI
 
         GameObject[] panels;
         float placeAt = -1f;
+        bool gliding;
+        Vector3 goalPosition;
+        Quaternion goalRotation;
 
         static GameManager Game => GameManager.Instance;
 
@@ -116,20 +123,65 @@ namespace Skyguard.UI
 
         void LateUpdate()
         {
-            if (placeAt < 0f || Time.unscaledTime < placeAt)
+            if (!menuRoot.gameObject.activeSelf)
                 return;
-            placeAt = -1f;
-            PlaceInFront();
+
+            if (placeAt >= 0f)
+            {
+                if (Time.unscaledTime < placeAt)
+                    return;
+                placeAt = -1f;
+                gliding = false;
+                FindSpotInFront(out goalPosition, out goalRotation);
+                menuRoot.SetPositionAndRotation(goalPosition, goalRotation);
+                return;
+            }
+
+            if (!gliding && LeftBehind())
+            {
+                FindSpotInFront(out goalPosition, out goalRotation);
+                gliding = true;
+            }
+            if (!gliding)
+                return;
+
+            float k = 1f - Mathf.Exp(-followSpeed * Time.unscaledDeltaTime);
+            menuRoot.SetPositionAndRotation(Vector3.Lerp(menuRoot.position, goalPosition, k),
+                                            Quaternion.Slerp(menuRoot.rotation, goalRotation, k));
+            if ((menuRoot.position - goalPosition).sqrMagnitude < 0.0001f)
+                gliding = false;
+        }
+
+        // small head movements while aiming at a button shouldn't drag the menu around,
+        // only turning well away, walking off or sitting down does
+        bool LeftBehind()
+        {
+            var toMenu = menuRoot.position - head.position;
+            float height = toMenu.y;
+            toMenu.y = 0f;
+            var forward = head.forward;
+            forward.y = 0f;
+            if (forward.sqrMagnitude < 0.01f)
+                return false;
+
+            return Vector3.Angle(forward, toMenu) > followAngle
+                || Mathf.Abs(toMenu.magnitude - distance) > 0.5f
+                || Mathf.Abs(height + 0.1f) > 0.35f;
         }
 
         void RefreshMain()
         {
             bool unlocked = Game.EndlessUnlocked;
             endlessButton.interactable = unlocked;
-            UiButtons.SetLabel(endlessButton, unlocked ? "Endless" : "Endless (finish the night first)");
+            UiButtons.SetLabel(endlessButton, unlocked ? "Endless" : "Endless (locked)");
+
+            var top = Game.Leaderboard.TopScores;
+            bestScore.text = top.Count > 0
+                ? $"Best score   <color=#F5B83D>{top[0].initials}  {top[0].score:N0}</color>"
+                : "No scores yet. Be the first on the board.";
         }
 
-        void PlaceInFront()
+        void FindSpotInFront(out Vector3 position, out Quaternion rotation)
         {
             var forward = head.forward;
             forward.y = 0f;
@@ -137,8 +189,8 @@ namespace Skyguard.UI
                 forward = head.up;
             forward.Normalize();
 
-            menuRoot.position = head.position + forward * distance + Vector3.down * 0.1f;
-            menuRoot.rotation = Quaternion.LookRotation(forward);
+            position = head.position + forward * distance + Vector3.down * 0.1f;
+            rotation = Quaternion.LookRotation(forward);
         }
     }
 }
