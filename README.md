@@ -129,7 +129,7 @@ Window > General > Test Runner.
 ## Credits
 
 - Blaster, drones, player shield and the armoured gloves (with their finger poses): modelled by me in Blender.
-- Rooftops, relay tower, city buildings, dome, magazine, holster and pouch: made in Blender with Python scripts, all sharing one texture atlas with Imigongo patterns.
+- Rooftops, relay tower, city buildings, dome, magazine, holster and pouch: made in Blender, all sharing one texture atlas with Imigongo patterns.
 - Concept art, the city skyline band and the intro video shots: generated with Higgsfield (Seedance 2.5, Nano Banana, GPT Image). I edited the shots into the intro and mixed it with Ishema's lines and the music. The main menu's header art is a frame from the last shot.
 - Ishema's voice: AI text-to-speech made with Grok from a voice brief I wrote for the character (tone, pace and what's on screen for every line), then trimmed and levelled for the game.
 - Music by Kevin MacLeod (incompetech.com), licensed under Creative Commons: By Attribution 4.0 License, http://creativecommons.org/licenses/by/4.0/
@@ -139,6 +139,7 @@ Window > General > Test Runner.
   - "Heroic Age" (dawn)
   - "News of Sorrow" (game over)
   - "Exotic Battle" (intro)
-- Sound effects: synthesised with a small numpy script.
-- Font: Liberation Sans (comes with TextMeshPro).
+- Sound effects: synthesised for the game.
+- Fonts: Rubik for headings and menu buttons, Liberation Sans (comes with TextMeshPro) for everything else.
+- Menu button frames and hover glow, plus the Rubik font assets: from the free [Modern Menu 1](https://assetstore.unity.com/packages/tools/gui/3d-modern-menu-ui-116144) pack by SlimUI on the Unity Asset Store, recoloured to the game's teal and gold. Only the pieces the menus use are in the repo.
 - XR Interaction Toolkit Starter Assets by Unity.
