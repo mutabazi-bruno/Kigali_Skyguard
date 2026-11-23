@@ -16,6 +16,7 @@ namespace Skyguard.Platform
         public class Caption
         {
             public float time;
+            public float duration = 4f;
             public string english;
             public string french;
             public string kinyarwanda;
@@ -140,11 +141,14 @@ namespace Skyguard.Platform
                 };
             }
 
-            // each caption fades in, holds, then fades out before the next one
+            // each caption fades in with ishema's line and out when she stops, or when the next line starts
             if (captionIndex < 0)
                 return;
-            float since = time - captions[captionIndex].time;
-            float until = captionIndex + 1 < captions.Count ? captions[captionIndex + 1].time - time : 4f - since;
+            var shown = captions[captionIndex];
+            float since = time - shown.time;
+            float until = shown.time + shown.duration - time;
+            if (captionIndex + 1 < captions.Count)
+                until = Mathf.Min(until, captions[captionIndex + 1].time - time);
             captionGroup.alpha = Mathf.Clamp01(Mathf.Min(since * 2f, until * 2f));
         }
 
