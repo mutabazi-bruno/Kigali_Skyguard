@@ -114,6 +114,61 @@ namespace Skyguard.Tests
             }
         }
 
+        // wave 10: bolts fired from the player's head straight at the weak points, no leading, have to bring the carrier down
+        [UnityTest]
+        public IEnumerator CarrierFallsWhenItsWeakPointsAreShot()
+        {
+            game.StartCampaign();
+            yield return Until(() => game.State == GameStateId.Wave, 5f);
+            var waves = Object.FindAnyObjectByType<WaveManager>();
+            waves.StartWave(waves.GetWave(10, false));
+
+            CarrierDrone carrier = null;
+            Time.timeScale = 4f;
+            yield return Until(() =>
+            {
+                KillScouts(waves);
+                carrier = waves.Active.OfType<CarrierDrone>().FirstOrDefault(c => c.IsAlive);
+                return carrier != null;
+            }, 30f);
+            Assert.IsNotNull(carrier, "no carrier in wave 10");
+
+            // let it fly out to its orbit around the tower first
+            float flyIn = Time.time + 8f;
+            yield return Until(() =>
+            {
+                KillScouts(waves);
+                return Time.time > flyIn;
+            }, 10f);
+            Time.timeScale = 1f;
+
+            var head = Camera.main.transform;
+            var bolts = Object.FindObjectsByType<ProjectileLauncher>(FindObjectsSortMode.None)
+                .First(l => l.GetComponentInChildren<PlayerBolt>(true) != null);
+            var points = carrier.GetComponentsInChildren<CarrierWeakPoint>();
+            float nextShot = 0f;
+            yield return Until(() =>
+            {
+                KillScouts(waves);
+                if (Time.time >= nextShot)
+                {
+                    // about the blaster's own fire rate
+                    nextShot = Time.time + 0.12f;
+                    var point = points.First(p => !p.IsBroken);
+                    bolts.Launch(head.position, point.transform.position - head.position);
+                }
+                return !carrier.IsAlive;
+            }, 25f);
+
+            Assert.IsFalse(carrier.IsAlive, $"carrier still flying, weak points broken: {points.Count(p => p.IsBroken)} of {points.Length}");
+        }
+
+        static void KillScouts(WaveManager waves)
+        {
+            foreach (var drone in waves.Active.Where(d => d.IsAlive && d is not CarrierDrone).ToList())
+                drone.TakeDamage(new DamageInfo { Amount = 5, Source = DamageSource.Player, Direction = drone.transform.forward, Point = drone.transform.position });
+        }
+
         [UnityTest]
         public IEnumerator HandShieldSettingShowsAndHidesTheDisc()
         {

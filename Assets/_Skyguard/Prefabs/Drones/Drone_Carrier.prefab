@@ -4921,9 +4921,9 @@ MonoBehaviour:
   - {fileID: 2568499482371230649}
   - {fileID: 6374155804926533619}
   - {fileID: 6473447217702490821}
-  stationDistance: 30
+  stationDistance: 22
   stationHeight: 14
-  orbitSpeed: 4
+  orbitSpeed: 2.5
 --- !u!205 &3573682487377644667
 LODGroup:
   m_ObjectHideFlags: 0
@@ -5412,7 +5412,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.1
+  m_Radius: 0.2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6374155804926533619
 MonoBehaviour:
@@ -5473,7 +5473,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.1
+  m_Radius: 0.2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4625954266924834305
 MonoBehaviour:
@@ -5514,7 +5514,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.1
+  m_Radius: 0.2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2568499482371230649
 MonoBehaviour:
@@ -5555,7 +5555,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.1
+  m_Radius: 0.2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6473447217702490821
 MonoBehaviour:

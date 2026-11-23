@@ -9,9 +9,9 @@ namespace Skyguard.Drones
         [SerializeField] Transform baySpawn;
         [SerializeField] Transform hatch;
         [SerializeField] CarrierWeakPoint[] weakPoints;
-        [SerializeField] float stationDistance = 30f;
+        [SerializeField] float stationDistance = 22f;
         [SerializeField] float stationHeight = 14f;
-        [SerializeField] float orbitSpeed = 4f;
+        [SerializeField] float orbitSpeed = 2.5f;
 
         Vector3 station;
         bool onStation;
@@ -55,7 +55,10 @@ namespace Skyguard.Drones
                 transform.position = tower + Quaternion.AngleAxis(orbitSpeed * deltaTime, Vector3.up) * offset;
             }
 
-            TurnTowards(context.PlayerHead.position, 15f, deltaTime);
+            // yaw only. pitching down at the player hid the glowing weak points under its belly
+            var face = context.PlayerHead.position;
+            face.y = transform.position.y;
+            TurnTowards(face, 15f, deltaTime);
 
             releaseTimer -= deltaTime;
             if (releaseTimer <= 0f)
