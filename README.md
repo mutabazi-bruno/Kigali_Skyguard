@@ -115,7 +115,7 @@ The target is a steady 72 fps on Quest 2, and full campaign runs on the headset 
 Window > General > Test Runner.
 
 - Edit mode (13 tests): event bus, state machine and pause overlay, leaderboard ranking and saving (with an in-memory `ISaveStorage`, so the real save file isn't touched), endless wave generation.
-- Play mode (9 tests): these load the real scene. Clear wave 1, shoot an upgrade card and check wave 2 starts. Let the tower fall and check the run ends. Pause and resume. Check the menu opens on launch, that the hands can reach the blaster and magazines, that pushing a magazine in counts as a reload, that the shield disc stops a Gunner laser, that the hand shield setting shows and hides it, and that bolts fly through the tower lattice so drones behind it can still be shot.
+- Play mode (10 tests): these load the real scene. Clear wave 1, shoot an upgrade card and check wave 2 starts. Let the tower fall and check the run ends. Pause and resume. Check the menu opens on launch, that the hands can reach the blaster and magazines, that pushing a magazine in counts as a reload, that the shield disc stops a Gunner laser, that the hand shield setting shows and hides it, that bolts fly through the tower lattice so drones behind it can still be shot, and that bolts aimed straight at the Carrier's weak points bring it down while it circles the tower.
 
 ## Changes from the GDD
 
