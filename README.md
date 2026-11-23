@@ -38,7 +38,7 @@ Ishema, the tower's assistant, talks you through the night, with subtitles in En
    ```
 3. Open it from Library > Unknown Sources.
 
-Play standing in a 2 m x 2 m space. The first launch plays the intro (hold the trigger to skip) and asks which hand holds the blaster, whether you're standing or seated, and whether you want snap turn.
+Play standing in a 2 m x 2 m space. Menus open about 1.5 m in front of you and slide back into view if you turn away, walk off or sit down. The first launch plays the intro (hold the trigger to skip) and asks which hand holds the blaster, whether you're standing or seated, and whether you want snap turn.
 
 ### In the Unity editor
 
@@ -130,8 +130,8 @@ Window > General > Test Runner.
 
 - Blaster, drones, player shield and the armoured gloves (with their finger poses): modelled by me in Blender.
 - Rooftops, relay tower, city buildings, dome, magazine, holster and pouch: made in Blender with Python scripts, all sharing one texture atlas with Imigongo patterns.
-- Concept art, the city skyline band and the intro video shots: generated with Higgsfield (Seedance 2.5, Nano Banana, GPT Image). I edited the shots into the intro and mixed it with Ishema's lines and the music.
-- Ishema's voice: recorded by a voice actor for this project.
+- Concept art, the city skyline band and the intro video shots: generated with Higgsfield (Seedance 2.5, Nano Banana, GPT Image). I edited the shots into the intro and mixed it with Ishema's lines and the music. The main menu's header art is a frame from the last shot.
+- Ishema's voice: AI text-to-speech made with Grok from a voice brief I wrote for the character (tone, pace and what's on screen for every line), then trimmed and levelled for the game.
 - Music by Kevin MacLeod (incompetech.com), licensed under Creative Commons: By Attribution 4.0 License, http://creativecommons.org/licenses/by/4.0/
   - "Floating Cities" (menu)
   - "Exit the Premises" (waves 1 to 7)
