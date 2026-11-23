@@ -9,7 +9,8 @@ using UnityEngine.Video;
 
 namespace Skyguard.Platform
 {
-    // the opening cutscene, shown on a big screen in the dark. plays on first launch, can be replayed from the menu
+    // the opening cutscene, shown on a big screen in the dark. plays every time the game starts (hold trigger to skip)
+    // and can be replayed from the menu
     public class IntroPlayer : MonoBehaviour
     {
         [Serializable]
@@ -64,12 +65,6 @@ namespace Skyguard.Platform
 
         void Start()
         {
-            if (save.Data.introSeen && !SceneFlow.ReplayIntro)
-            {
-                SceneFlow.StartGame();
-                return;
-            }
-
             captionGroup.alpha = 0f;
             // the headset pose isn't tracked yet on the first frames, so turn the screen towards the player a moment later
             placeAt = Time.unscaledTime + 0.25f;

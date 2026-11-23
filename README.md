@@ -38,7 +38,7 @@ Ishema, the tower's assistant, talks you through the night, with subtitles in En
    ```
 3. Open it from Library > Unknown Sources.
 
-Play standing in a 2 m x 2 m space. Menus open about 1.5 m in front of you and slide back into view if you turn away, walk off or sit down. The first launch plays the intro (hold the trigger to skip) and asks which hand holds the blaster, whether you're standing or seated, and whether you want snap turn.
+Play standing in a 2 m x 2 m space. Menus open about 1.5 m in front of you and slide back into view if you turn away, walk off or sit down. Every launch plays the intro (hold the trigger to skip it), and the first one also asks which hand holds the blaster, whether you're standing or seated, and whether you want snap turn.
 
 ### In the Unity editor
 
@@ -115,7 +115,7 @@ The target is a steady 72 fps on Quest 2, and full campaign runs on the headset 
 Window > General > Test Runner.
 
 - Edit mode (13 tests): event bus, state machine and pause overlay, leaderboard ranking and saving (with an in-memory `ISaveStorage`, so the real save file isn't touched), endless wave generation.
-- Play mode (8 tests): these load the real scene. Clear wave 1, shoot an upgrade card and check wave 2 starts. Let the tower fall and check the run ends. Pause and resume. Check the menu opens on launch, that the hands can reach the blaster and magazines, that pushing a magazine in counts as a reload, that the shield disc stops a Gunner laser, and that the hand shield setting shows and hides it.
+- Play mode (9 tests): these load the real scene. Clear wave 1, shoot an upgrade card and check wave 2 starts. Let the tower fall and check the run ends. Pause and resume. Check the menu opens on launch, that the hands can reach the blaster and magazines, that pushing a magazine in counts as a reload, that the shield disc stops a Gunner laser, that the hand shield setting shows and hides it, and that bolts fly through the tower lattice so drones behind it can still be shot.
 
 ## Changes from the GDD
 
