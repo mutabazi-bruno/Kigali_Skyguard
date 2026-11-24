@@ -6,7 +6,9 @@ Built in Unity 6 LTS (6000.0.80f1) with URP, OpenXR and the XR Interaction Toolk
 
 **Video:** [gameplay, then a walkthrough of the project, the code and the Profiler](https://www.youtube.com/watch?v=UzQ_KItkBpM)
 
-<!-- links: GDD, APK download -->
+**Game design document:** [Kigali Skyguard GDD on Notion](https://app.notion.com/p/Kigali-Skyguard-Game-Design-Document-b1125f1d172582c6b6d9016fe9db5407). Section 9 has the final build's performance results, and section 10 lists what changed from the original plan.
+
+<!-- links: APK download -->
 
 ## What you do
 
