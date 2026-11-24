@@ -4,7 +4,9 @@ A VR wave shooter for Meta Quest 2. It's 2040, a program called HIVE has taken o
 
 Built in Unity 6 LTS (6000.0.80f1) with URP, OpenXR and the XR Interaction Toolkit 3.
 
-<!-- links: gameplay video, GDD, APK download -->
+**Video:** [gameplay, then a walkthrough of the project, the code and the Profiler](https://www.youtube.com/watch?v=UzQ_KItkBpM)
+
+<!-- links: GDD, APK download -->
 
 ## What you do
 
